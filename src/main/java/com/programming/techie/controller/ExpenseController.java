@@ -23,7 +23,11 @@ public class ExpenseController {
         expenseService.addExpense(expense);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    public void updateExpense(){}
+    @PutMapping
+    public ResponseEntity updateExpense(@RequestBody Expense expense) {
+        expenseService.updateExpense(expense);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
     @GetMapping
     public ResponseEntity<List<Expense>> getAllExpense(){
         return ResponseEntity.ok(expenseService.getAllExpense());
