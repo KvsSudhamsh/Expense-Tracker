@@ -32,6 +32,9 @@ public class ExpenseController {
     public ResponseEntity<List<Expense>> getAllExpense(){
         return ResponseEntity.ok(expenseService.getAllExpense());
     }
-    public void getExpenseByName(){}
+    @GetMapping("/{name}")
+    public ResponseEntity getExpenseByName(@PathVariable String name) {
+        return ResponseEntity.ok(expenseService.getExpenseByName(name));
+    }
     public void deleteExpense(){}
 }

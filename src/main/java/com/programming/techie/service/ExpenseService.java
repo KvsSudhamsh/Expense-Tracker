@@ -27,7 +27,10 @@ public class ExpenseService {
     public List<Expense> getAllExpense(){
         return expenseRepository.findAll();
     }
-    public void getExpenseByName(){}
+    public Expense getExpenseByName(String name){
+        return expenseRepository.findByName(name)
+                .orElseThrow(() -> new RuntimeException(String.format("Cannot Find Expense by Name - %s", name)));
+    }
     public void deleteExpense(){}
 
 }
